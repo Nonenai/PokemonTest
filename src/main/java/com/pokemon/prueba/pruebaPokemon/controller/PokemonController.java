@@ -81,8 +81,7 @@ public class PokemonController {
 			this.trainer.getPokemonTeam().setMainPokemon(trainer.getPokemonTeam().getPokemons().get(0));
 			trainer.getPokemonTeam().getPokemons().remove(0);
 			trainer.getPokemonTeam().getPokemons().add(pokemonTmp);
-		}
-		else {
+		} else {
 			System.out.println("La lista de pokemon esta vacia");
 		}
 		ModelAndView modelAndView = new ModelAndView("index");
@@ -92,26 +91,22 @@ public class PokemonController {
 
 	@PostMapping("switchAttack")
 	public ModelAndView switchAttack(Trainer trainerForm) {
-		if(trainer.getPokemonTeam().getMainPokemon()!=null)
-		{
-		Attack attackTmp = this.trainer.getAttackAux();
-		this.trainer.setAttackAux(trainer.getPokemon().getAttackList().get(0));
-		trainer.getPokemon().getAttackList().remove(0);
-		trainer.getPokemon().getAttackList().add(attackTmp);
-		}
-		else {
-			
+		if (trainer.getPokemonTeam().getMainPokemon() != null) {
+			Attack attackTmp = this.trainer.getAttackAux();
+			this.trainer.setAttackAux(trainer.getPokemon().getAttackList().get(0));
+			trainer.getPokemon().getAttackList().remove(0);
+			trainer.getPokemon().getAttackList().add(attackTmp);
+		} else {
+			System.out.println("No se ha establecido el pokemon principal");
 		}
 		ModelAndView modelAndView = new ModelAndView("index");
 		modelAndView.addObject("trainer", this.trainer);
 		return modelAndView;
 	}
+
 	@PostMapping("executeMainAttack")
 	public ModelAndView executeMainAttack(Trainer trainerForm) {
-		Attack attackTmp = this.trainer.getPokemonTeam().getMainPokemon().;
-		this.trainer.setAttackAux(trainer.getPokemon().getAttackList().get(0));
-		trainer.getPokemon().getAttackList().remove(0);
-		trainer.getPokemon().getAttackList().add(attackTmp);
+		
 		ModelAndView modelAndView = new ModelAndView("index");
 		modelAndView.addObject("trainer", this.trainer);
 		return modelAndView;
