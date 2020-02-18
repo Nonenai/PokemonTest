@@ -50,7 +50,7 @@
 	<span><c:out value="${trainer.savagePokemon.name}"></c:out> </span>
 	<span><c:out value="${trainer.savagePokemon.health}"></c:out> </span>
 	<span>Listea de ataques |||</span>
-	<span>Ataque principal: <c:out value="${trainer.attackAux.name}"></c:out></span>
+	<span>Ataque principal: <c:out value="${trainer.pokemonTeam.mainPokemon.mainAttack.name}"></c:out></span>
 	<table border="1">
 		<thead>
 			<tr>

@@ -10,6 +10,7 @@ public abstract class Pokemon {
 	private Integer level;
 	private Integer health;
 	private Boolean savage;
+	private Attack mainAttack;
 	private List<Attack> attackList = new ArrayList<Attack>();
 	
 	public String getName() {
@@ -51,6 +52,14 @@ public abstract class Pokemon {
 
 	public void setSavage(Boolean type) {
 		this.savage = type;
+	}
+
+	public Attack getMainAttack() {
+		return mainAttack;
+	}
+
+	public void setMainAttack(Attack mainAttack) {
+		this.mainAttack = mainAttack;
 	}
 
 

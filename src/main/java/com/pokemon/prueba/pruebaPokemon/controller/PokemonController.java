@@ -91,11 +91,11 @@ public class PokemonController {
 
 	@PostMapping("switchAttack")
 	public ModelAndView switchAttack(Trainer trainerForm) {
-		if (trainer.getPokemonTeam().getMainPokemon() != null) {
-			Attack attackTmp = this.trainer.getAttackAux();
-			this.trainer.setAttackAux(trainer.getPokemon().getAttackList().get(0));
-			trainer.getPokemon().getAttackList().remove(0);
-			trainer.getPokemon().getAttackList().add(attackTmp);
+		if ((trainer.getPokemonTeam().getMainPokemon() != null)&&(!trainer.getPokemonTeam().getMainPokemon().getAttackList().isEmpty())) {
+			Attack attackTmp = this.trainer.getPokemonTeam().getMainPokemon().getMainAttack();
+			this.trainer.getPokemonTeam().getMainPokemon().setMainAttack(trainer.getPokemonTeam().getMainPokemon().getAttackList().get(0));
+			trainer.getPokemonTeam().getMainPokemon().getAttackList().remove(0);
+			trainer.getPokemonTeam().getMainPokemon().getAttackList().add(attackTmp);
 		} else {
 			System.out.println("No se ha establecido el pokemon principal");
 		}
